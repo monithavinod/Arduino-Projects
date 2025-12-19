@@ -10,7 +10,7 @@ as part of Robotics and Electronics learning.
 - Follow clean coding and Git practices
 
 ## 🧒 Target Students
-- Class 6 to Class 12
+- Class 6 to Class 11
 
 ## 🛠 Tools Required
 - Arduino UNO
