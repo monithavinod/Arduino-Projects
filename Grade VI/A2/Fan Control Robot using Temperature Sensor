@@ -1,1 +1,34 @@
+int lm35Pin = A0;
+int relayPin = 8;
+int ledPin = 7;
+
+float temperature;
+int threshold = 30;   // Temperature limit in degree Celsius
+
+void setup() {
+  pinMode(relayPin, OUTPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorValue = analogRead(lm35Pin);
+
+  // Convert LM35 output to temperature
+  temperature = (sensorValue * 5.0 * 100.0) / 1023.0;
+
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.println(" C");
+
+  if (temperature >= threshold) {
+    digitalWrite(relayPin, HIGH);  // Fan ON
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(relayPin, LOW);   // Fan OFF
+    digitalWrite(ledPin, LOW);
+  }
+
+  delay(1000);
+}
 
